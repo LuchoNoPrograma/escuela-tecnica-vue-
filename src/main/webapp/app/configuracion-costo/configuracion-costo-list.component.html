@@ -1,0 +1,47 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@configuracionCosto.list.headline">Configuracion Costoes</h1>
+    <div>
+        <a routerLink="/configuracionCostos/add" class="btn btn-primary ms-2" i18n="@@configuracionCosto.list.createNew">Create new Configuracion Costo</a>
+    </div>
+</div>
+@if (!configuracionCostoes || configuracionCostoes.length === 0) {
+<div i18n="@@configuracionCosto.list.empty">No Configuracion Costoes could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@configuracionCosto.idConfiguracionCosto.label">Id Configuracion Costo</th>
+                <th scope="col" i18n="@@configuracionCosto.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@configuracionCosto.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@configuracionCosto.montoConfig.label">Monto Config</th>
+                <th scope="col" i18n="@@configuracionCosto.fecInicioVig.label">Fec Inicio Vig</th>
+                <th scope="col" i18n="@@configuracionCosto.fecFinVig.label">Fec Fin Vig</th>
+                <th scope="col" i18n="@@configuracionCosto.estConfig.label">Est Config</th>
+                <th scope="col" i18n="@@configuracionCosto.concepto.label">Concepto</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (configuracionCosto of configuracionCostoes; track configuracionCosto.idConfiguracionCosto) {
+            <tr>
+                <td>{{ configuracionCosto.idConfiguracionCosto }}</td>
+                <td>{{ configuracionCosto.idUsuReg }}</td>
+                <td>{{ configuracionCosto.idUsuMod }}</td>
+                <td>{{ configuracionCosto.montoConfig }}</td>
+                <td>{{ configuracionCosto.fecInicioVig }}</td>
+                <td>{{ configuracionCosto.fecFinVig }}</td>
+                <td>{{ configuracionCosto.estConfig }}</td>
+                <td>{{ configuracionCosto.concepto }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/configuracionCostos/edit', configuracionCosto.idConfiguracionCosto]" class="btn btn-sm btn-secondary" i18n="@@configuracionCosto.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(configuracionCosto.idConfiguracionCosto!)" class="btn btn-sm btn-secondary" i18n="@@configuracionCosto.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

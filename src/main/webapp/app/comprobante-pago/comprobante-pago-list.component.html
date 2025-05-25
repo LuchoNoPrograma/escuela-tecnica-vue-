@@ -1,0 +1,45 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@comprobantePago.list.headline">Comprobante Pagoes</h1>
+    <div>
+        <a routerLink="/comprobantePagos/add" class="btn btn-primary ms-2" i18n="@@comprobantePago.list.createNew">Create new Comprobante Pago</a>
+    </div>
+</div>
+@if (!comprobantePagoes || comprobantePagoes.length === 0) {
+<div i18n="@@comprobantePago.list.empty">No Comprobante Pagoes could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@comprobantePago.idComprobante.label">Id Comprobante</th>
+                <th scope="col" i18n="@@comprobantePago.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@comprobantePago.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@comprobantePago.codComprobante.label">Cod Comprobante</th>
+                <th scope="col" i18n="@@comprobantePago.monto.label">Monto</th>
+                <th scope="col" i18n="@@comprobantePago.fecComprobante.label">Fec Comprobante</th>
+                <th scope="col" i18n="@@comprobantePago.tipoDeposito.label">Tipo Deposito</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (comprobantePago of comprobantePagoes; track comprobantePago.idComprobante) {
+            <tr>
+                <td>{{ comprobantePago.idComprobante }}</td>
+                <td>{{ comprobantePago.idUsuReg }}</td>
+                <td>{{ comprobantePago.idUsuMod }}</td>
+                <td>{{ comprobantePago.codComprobante }}</td>
+                <td>{{ comprobantePago.monto }}</td>
+                <td>{{ comprobantePago.fecComprobante }}</td>
+                <td>{{ comprobantePago.tipoDeposito }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/comprobantePagos/edit', comprobantePago.idComprobante]" class="btn btn-sm btn-secondary" i18n="@@comprobantePago.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(comprobantePago.idComprobante!)" class="btn btn-sm btn-secondary" i18n="@@comprobantePago.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

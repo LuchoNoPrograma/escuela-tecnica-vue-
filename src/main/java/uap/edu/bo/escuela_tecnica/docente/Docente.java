@@ -1,0 +1,42 @@
+package uap.edu.bo.escuela_tecnica.docente;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
+import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
+import uap.edu.bo.escuela_tecnica.auditoria.Auditoria;
+import uap.edu.bo.escuela_tecnica.persona.Persona;
+
+
+@Entity
+@Getter
+@Setter
+public class Docente extends Auditoria {
+
+    @Id
+    @Column(updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idDocente;
+
+    @Column
+    private Integer nroResolucion;
+
+    @Column(nullable = false)
+    private LocalDate fecInicioContrato;
+
+    @Column
+    private LocalDate fecFinContrato;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_id_persona", nullable = false)
+    private Persona persona;
+
+}

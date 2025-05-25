@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@comprobantePago.add.headline">Add Comprobante Pago</h1>
+    <div>
+        <a routerLink="/comprobantePagos" class="btn btn-secondary" i18n="@@comprobantePago.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@comprobantePago.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@comprobantePago.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="codComprobante" i18n-label="@@comprobantePago.codComprobante.label" label="Cod Comprobante" />
+    <app-input-row [group]="addForm" field="monto" i18n-label="@@comprobantePago.monto.label" label="Monto" />
+    <app-input-row [group]="addForm" field="fecComprobante" rowType="datetimepicker" i18n-label="@@comprobantePago.fecComprobante.label" label="Fec Comprobante" />
+    <app-input-row [group]="addForm" field="tipoDeposito" i18n-label="@@comprobantePago.tipoDeposito.label" label="Tipo Deposito" />
+    <app-input-row [group]="addForm" field="listaDetallesPagos" rowType="multiselect" [options]="listaDetallesPagosValues" i18n-label="@@comprobantePago.listaDetallesPagos.label" label="Lista Detalles Pagos" />
+    <input type="submit" i18n-value="@@comprobantePago.add.headline" value="Add Comprobante Pago" class="btn btn-primary mt-4" />
+</form>

@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@matricula.edit.headline">Edit Matricula</h1>
+    <div>
+        <a routerLink="/matriculas" class="btn btn-secondary" i18n="@@matricula.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="codMatricula" rowType="number" i18n-label="@@matricula.codMatricula.label" label="Cod Matricula" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@matricula.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@matricula.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="fecMatriculacion" rowType="datepicker" i18n-label="@@matricula.fecMatriculacion.label" label="Fec Matriculacion" />
+    <app-input-row [group]="editForm" field="estMatricula" i18n-label="@@matricula.estMatricula.label" label="Est Matricula" />
+    <app-input-row [group]="editForm" field="grupo" rowType="select" [options]="grupoValues" i18n-label="@@matricula.grupo.label" label="Grupo" />
+    <app-input-row [group]="editForm" field="persona" rowType="select" [options]="personaValues" i18n-label="@@matricula.persona.label" label="Persona" />
+    <input type="submit" i18n-value="@@matricula.edit.headline" value="Edit Matricula" class="btn btn-primary mt-4" />
+</form>

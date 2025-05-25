@@ -1,0 +1,45 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@docente.list.headline">Docentes</h1>
+    <div>
+        <a routerLink="/docentes/add" class="btn btn-primary ms-2" i18n="@@docente.list.createNew">Create new Docente</a>
+    </div>
+</div>
+@if (!docentes || docentes.length === 0) {
+<div i18n="@@docente.list.empty">No Docentes could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@docente.idDocente.label">Id Docente</th>
+                <th scope="col" i18n="@@docente.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@docente.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@docente.nroResolucion.label">Nro Resolucion</th>
+                <th scope="col" i18n="@@docente.fecInicioContrato.label">Fec Inicio Contrato</th>
+                <th scope="col" i18n="@@docente.fecFinContrato.label">Fec Fin Contrato</th>
+                <th scope="col" i18n="@@docente.persona.label">Persona</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (docente of docentes; track docente.idDocente) {
+            <tr>
+                <td>{{ docente.idDocente }}</td>
+                <td>{{ docente.idUsuReg }}</td>
+                <td>{{ docente.idUsuMod }}</td>
+                <td>{{ docente.nroResolucion }}</td>
+                <td>{{ docente.fecInicioContrato }}</td>
+                <td>{{ docente.fecFinContrato }}</td>
+                <td>{{ docente.persona }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/docentes/edit', docente.idDocente]" class="btn btn-sm btn-secondary" i18n="@@docente.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(docente.idDocente!)" class="btn btn-sm btn-secondary" i18n="@@docente.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

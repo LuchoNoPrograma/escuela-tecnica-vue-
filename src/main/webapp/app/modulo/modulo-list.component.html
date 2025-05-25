@@ -1,0 +1,39 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@modulo.list.headline">Moduloes</h1>
+    <div>
+        <a routerLink="/modulos/add" class="btn btn-primary ms-2" i18n="@@modulo.list.createNew">Create new Modulo</a>
+    </div>
+</div>
+@if (!moduloes || moduloes.length === 0) {
+<div i18n="@@modulo.list.empty">No Moduloes could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@modulo.idModulo.label">Id Modulo</th>
+                <th scope="col" i18n="@@modulo.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@modulo.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@modulo.nombreMod.label">Nombre Mod</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (modulo of moduloes; track modulo.idModulo) {
+            <tr>
+                <td>{{ modulo.idModulo }}</td>
+                <td>{{ modulo.idUsuReg }}</td>
+                <td>{{ modulo.idUsuMod }}</td>
+                <td>{{ modulo.nombreMod }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/modulos/edit', modulo.idModulo]" class="btn btn-sm btn-secondary" i18n="@@modulo.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(modulo.idModulo!)" class="btn btn-sm btn-secondary" i18n="@@modulo.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

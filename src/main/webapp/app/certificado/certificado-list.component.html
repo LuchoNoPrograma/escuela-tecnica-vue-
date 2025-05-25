@@ -1,0 +1,45 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@certificado.list.headline">Certificadoes</h1>
+    <div>
+        <a routerLink="/certificados/add" class="btn btn-primary ms-2" i18n="@@certificado.list.createNew">Create new Certificado</a>
+    </div>
+</div>
+@if (!certificadoes || certificadoes.length === 0) {
+<div i18n="@@certificado.list.empty">No Certificadoes could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@certificado.idCertificado.label">Id Certificado</th>
+                <th scope="col" i18n="@@certificado.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@certificado.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@certificado.fechaEmision.label">Fecha Emision</th>
+                <th scope="col" i18n="@@certificado.estCertificado.label">Est Certificado</th>
+                <th scope="col" i18n="@@certificado.administrativo.label">Administrativo</th>
+                <th scope="col" i18n="@@certificado.matricula.label">Matricula</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (certificado of certificadoes; track certificado.idCertificado) {
+            <tr>
+                <td>{{ certificado.idCertificado }}</td>
+                <td>{{ certificado.idUsuReg }}</td>
+                <td>{{ certificado.idUsuMod }}</td>
+                <td>{{ certificado.fechaEmision }}</td>
+                <td>{{ certificado.estCertificado }}</td>
+                <td>{{ certificado.administrativo }}</td>
+                <td>{{ certificado.matricula }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/certificados/edit', certificado.idCertificado]" class="btn btn-sm btn-secondary" i18n="@@certificado.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(certificado.idCertificado!)" class="btn btn-sm btn-secondary" i18n="@@certificado.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

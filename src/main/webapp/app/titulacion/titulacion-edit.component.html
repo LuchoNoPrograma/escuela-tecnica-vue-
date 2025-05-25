@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@titulacion.edit.headline">Edit Titulacion</h1>
+    <div>
+        <a routerLink="/titulacions" class="btn btn-secondary" i18n="@@titulacion.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idTitulacion" rowType="number" i18n-label="@@titulacion.idTitulacion.label" label="Id Titulacion" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@titulacion.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@titulacion.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="fecEmision" rowType="datetimepicker" i18n-label="@@titulacion.fecEmision.label" label="Fec Emision" />
+    <app-input-row [group]="editForm" field="codTitulo" i18n-label="@@titulacion.codTitulo.label" label="Cod Titulo" />
+    <app-input-row [group]="editForm" field="urlDoc" rowType="textarea" i18n-label="@@titulacion.urlDoc.label" label="Url Doc" />
+    <app-input-row [group]="editForm" field="matricula" rowType="select" [options]="matriculaValues" i18n-label="@@titulacion.matricula.label" label="Matricula" />
+    <input type="submit" i18n-value="@@titulacion.edit.headline" value="Edit Titulacion" class="btn btn-primary mt-4" />
+</form>

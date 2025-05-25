@@ -1,0 +1,13 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@detallePago.add.headline">Add Detalle Pago</h1>
+    <div>
+        <a routerLink="/detallePagos" class="btn btn-secondary" i18n="@@detallePago.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@detallePago.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@detallePago.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="montoPagadoDetalle" i18n-label="@@detallePago.montoPagadoDetalle.label" label="Monto Pagado Detalle" />
+    <app-input-row [group]="addForm" field="planPago" rowType="select" [options]="planPagoValues" i18n-label="@@detallePago.planPago.label" label="Plan Pago" />
+    <input type="submit" i18n-value="@@detallePago.add.headline" value="Add Detalle Pago" class="btn btn-primary mt-4" />
+</form>

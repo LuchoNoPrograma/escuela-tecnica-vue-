@@ -1,0 +1,18 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@configuracionCosto.edit.headline">Edit Configuracion Costo</h1>
+    <div>
+        <a routerLink="/configuracionCostos" class="btn btn-secondary" i18n="@@configuracionCosto.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idConfiguracionCosto" rowType="number" i18n-label="@@configuracionCosto.idConfiguracionCosto.label" label="Id Configuracion Costo" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@configuracionCosto.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@configuracionCosto.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="montoConfig" i18n-label="@@configuracionCosto.montoConfig.label" label="Monto Config" />
+    <app-input-row [group]="editForm" field="fecInicioVig" rowType="datepicker" i18n-label="@@configuracionCosto.fecInicioVig.label" label="Fec Inicio Vig" />
+    <app-input-row [group]="editForm" field="fecFinVig" rowType="datepicker" i18n-label="@@configuracionCosto.fecFinVig.label" label="Fec Fin Vig" />
+    <app-input-row [group]="editForm" field="estConfig" rowType="checkbox" i18n-label="@@configuracionCosto.estConfig.label" label="Est Config" />
+    <app-input-row [group]="editForm" field="concepto" i18n-label="@@configuracionCosto.concepto.label" label="Concepto" />
+    <app-input-row [group]="editForm" field="programa" rowType="select" [options]="programaValues" i18n-label="@@configuracionCosto.programa.label" label="Programa" />
+    <input type="submit" i18n-value="@@configuracionCosto.edit.headline" value="Edit Configuracion Costo" class="btn btn-primary mt-4" />
+</form>

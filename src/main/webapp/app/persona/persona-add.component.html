@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@persona.add.headline">Add Persona</h1>
+    <div>
+        <a routerLink="/personas" class="btn btn-secondary" i18n="@@persona.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@persona.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@persona.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="nombre" i18n-label="@@persona.nombre.label" label="Nombre" />
+    <app-input-row [group]="addForm" field="apPaterno" i18n-label="@@persona.apPaterno.label" label="Ap Paterno" />
+    <app-input-row [group]="addForm" field="apMaterno" i18n-label="@@persona.apMaterno.label" label="Ap Materno" />
+    <app-input-row [group]="addForm" field="ci" i18n-label="@@persona.ci.label" label="Ci" />
+    <app-input-row [group]="addForm" field="nroCelular" i18n-label="@@persona.nroCelular.label" label="Nro Celular" />
+    <app-input-row [group]="addForm" field="correo" i18n-label="@@persona.correo.label" label="Correo" />
+    <input type="submit" i18n-value="@@persona.add.headline" value="Add Persona" class="btn btn-primary mt-4" />
+</form>

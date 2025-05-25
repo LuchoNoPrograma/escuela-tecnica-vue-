@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@certificado.edit.headline">Edit Certificado</h1>
+    <div>
+        <a routerLink="/certificados" class="btn btn-secondary" i18n="@@certificado.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idCertificado" rowType="number" i18n-label="@@certificado.idCertificado.label" label="Id Certificado" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@certificado.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@certificado.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="fechaEmision" rowType="datepicker" i18n-label="@@certificado.fechaEmision.label" label="Fecha Emision" />
+    <app-input-row [group]="editForm" field="estCertificado" i18n-label="@@certificado.estCertificado.label" label="Est Certificado" />
+    <app-input-row [group]="editForm" field="administrativo" rowType="select" [options]="administrativoValues" i18n-label="@@certificado.administrativo.label" label="Administrativo" />
+    <app-input-row [group]="editForm" field="matricula" rowType="select" [options]="matriculaValues" i18n-label="@@certificado.matricula.label" label="Matricula" />
+    <input type="submit" i18n-value="@@certificado.edit.headline" value="Edit Certificado" class="btn btn-primary mt-4" />
+</form>

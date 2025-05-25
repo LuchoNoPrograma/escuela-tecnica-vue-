@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@usuario.add.headline">Add Usuario</h1>
+    <div>
+        <a routerLink="/usuarios" class="btn btn-secondary" i18n="@@usuario.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@usuario.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@usuario.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="nombreUsuario" i18n-label="@@usuario.nombreUsuario.label" label="Nombre Usuario" />
+    <app-input-row [group]="addForm" field="contrasenaHash" rowType="password" i18n-label="@@usuario.contrasenaHash.label" label="Contrasena Hash" />
+    <app-input-row [group]="addForm" field="estUsuario" i18n-label="@@usuario.estUsuario.label" label="Est Usuario" />
+    <app-input-row [group]="addForm" field="listaTareasAsignadas" rowType="multiselect" [options]="listaTareasAsignadasValues" i18n-label="@@usuario.listaTareasAsignadas.label" label="Lista Tareas Asignadas" />
+    <app-input-row [group]="addForm" field="persona" rowType="select" [options]="personaValues" i18n-label="@@usuario.persona.label" label="Persona" />
+    <input type="submit" i18n-value="@@usuario.add.headline" value="Add Usuario" class="btn btn-primary mt-4" />
+</form>

@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@modalidad.add.headline">Add Modalidad</h1>
+    <div>
+        <a routerLink="/modalidads" class="btn btn-secondary" i18n="@@modalidad.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@modalidad.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@modalidad.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="nombre" i18n-label="@@modalidad.nombre.label" label="Nombre" />
+    <input type="submit" i18n-value="@@modalidad.add.headline" value="Add Modalidad" class="btn btn-primary mt-4" />
+</form>

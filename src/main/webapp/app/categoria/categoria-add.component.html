@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@categoria.add.headline">Add Categoria</h1>
+    <div>
+        <a routerLink="/categorias" class="btn btn-secondary" i18n="@@categoria.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@categoria.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@categoria.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="nombreCat" i18n-label="@@categoria.nombreCat.label" label="Nombre Cat" />
+    <input type="submit" i18n-value="@@categoria.add.headline" value="Add Categoria" class="btn btn-primary mt-4" />
+</form>

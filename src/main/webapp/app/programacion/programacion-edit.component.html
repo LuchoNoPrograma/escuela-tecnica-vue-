@@ -1,0 +1,19 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@programacion.edit.headline">Edit Programacion</h1>
+    <div>
+        <a routerLink="/programacions" class="btn btn-secondary" i18n="@@programacion.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idProgramacion" rowType="number" i18n-label="@@programacion.idProgramacion.label" label="Id Programacion" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@programacion.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@programacion.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="observacion" i18n-label="@@programacion.observacion.label" label="Observacion" />
+    <app-input-row [group]="editForm" field="fecProgramacion" rowType="datetimepicker" i18n-label="@@programacion.fecProgramacion.label" label="Fec Programacion" />
+    <app-input-row [group]="editForm" field="estCalificacion" i18n-label="@@programacion.estCalificacion.label" label="Est Calificacion" />
+    <app-input-row [group]="editForm" field="tipoProgramacion" i18n-label="@@programacion.tipoProgramacion.label" label="Tipo Programacion" />
+    <app-input-row [group]="editForm" field="calificacionFinal" rowType="number" i18n-label="@@programacion.calificacionFinal.label" label="Calificacion Final" />
+    <app-input-row [group]="editForm" field="cronogramaModulo" rowType="select" [options]="cronogramaModuloValues" i18n-label="@@programacion.cronogramaModulo.label" label="Cronograma Modulo" />
+    <app-input-row [group]="editForm" field="matricula" rowType="select" [options]="matriculaValues" i18n-label="@@programacion.matricula.label" label="Matricula" />
+    <input type="submit" i18n-value="@@programacion.edit.headline" value="Edit Programacion" class="btn btn-primary mt-4" />
+</form>

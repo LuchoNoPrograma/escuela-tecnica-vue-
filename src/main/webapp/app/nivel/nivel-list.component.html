@@ -1,0 +1,39 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@nivel.list.headline">Nivels</h1>
+    <div>
+        <a routerLink="/nivels/add" class="btn btn-primary ms-2" i18n="@@nivel.list.createNew">Create new Nivel</a>
+    </div>
+</div>
+@if (!nivels || nivels.length === 0) {
+<div i18n="@@nivel.list.empty">No Nivels could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@nivel.idNivel.label">Id Nivel</th>
+                <th scope="col" i18n="@@nivel.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@nivel.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@nivel.nombreNivel.label">Nombre Nivel</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (nivel of nivels; track nivel.idNivel) {
+            <tr>
+                <td>{{ nivel.idNivel }}</td>
+                <td>{{ nivel.idUsuReg }}</td>
+                <td>{{ nivel.idUsuMod }}</td>
+                <td>{{ nivel.nombreNivel }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/nivels/edit', nivel.idNivel]" class="btn btn-sm btn-secondary" i18n="@@nivel.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(nivel.idNivel!)" class="btn btn-sm btn-secondary" i18n="@@nivel.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

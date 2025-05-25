@@ -1,0 +1,15 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@matricula.add.headline">Add Matricula</h1>
+    <div>
+        <a routerLink="/matriculas" class="btn btn-secondary" i18n="@@matricula.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@matricula.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@matricula.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="fecMatriculacion" rowType="datepicker" i18n-label="@@matricula.fecMatriculacion.label" label="Fec Matriculacion" />
+    <app-input-row [group]="addForm" field="estMatricula" i18n-label="@@matricula.estMatricula.label" label="Est Matricula" />
+    <app-input-row [group]="addForm" field="grupo" rowType="select" [options]="grupoValues" i18n-label="@@matricula.grupo.label" label="Grupo" />
+    <app-input-row [group]="addForm" field="persona" rowType="select" [options]="personaValues" i18n-label="@@matricula.persona.label" label="Persona" />
+    <input type="submit" i18n-value="@@matricula.add.headline" value="Add Matricula" class="btn btn-primary mt-4" />
+</form>

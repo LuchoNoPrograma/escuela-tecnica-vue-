@@ -1,0 +1,19 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@revisionMonografia.edit.headline">Edit Revision Monografia</h1>
+    <div>
+        <a routerLink="/revisionMonografias" class="btn btn-secondary" i18n="@@revisionMonografia.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idRevisionMonografia" rowType="number" i18n-label="@@revisionMonografia.idRevisionMonografia.label" label="Id Revision Monografia" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@revisionMonografia.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@revisionMonografia.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="fecHoraDesignacion" rowType="datetimepicker" i18n-label="@@revisionMonografia.fecHoraDesignacion.label" label="Fec Hora Designacion" />
+    <app-input-row [group]="editForm" field="esAprobadorFinal" rowType="checkbox" i18n-label="@@revisionMonografia.esAprobadorFinal.label" label="Es Aprobador Final" />
+    <app-input-row [group]="editForm" field="fecHoraRevision" rowType="datetimepicker" i18n-label="@@revisionMonografia.fecHoraRevision.label" label="Fec Hora Revision" />
+    <app-input-row [group]="editForm" field="estRevisionMoografia" i18n-label="@@revisionMonografia.estRevisionMoografia.label" label="Est Revision Moografia" />
+    <app-input-row [group]="editForm" field="monografia" rowType="select" [options]="monografiaValues" i18n-label="@@revisionMonografia.monografia.label" label="Monografia" />
+    <app-input-row [group]="editForm" field="administrativo" rowType="select" [options]="administrativoValues" i18n-label="@@revisionMonografia.administrativo.label" label="Administrativo" />
+    <app-input-row [group]="editForm" field="docente" rowType="select" [options]="docenteValues" i18n-label="@@revisionMonografia.docente.label" label="Docente" />
+    <input type="submit" i18n-value="@@revisionMonografia.edit.headline" value="Edit Revision Monografia" class="btn btn-primary mt-4" />
+</form>

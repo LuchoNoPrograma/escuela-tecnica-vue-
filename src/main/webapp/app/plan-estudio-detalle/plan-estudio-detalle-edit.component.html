@@ -1,0 +1,19 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@planEstudioDetalle.edit.headline">Edit Plan Estudio Detalle</h1>
+    <div>
+        <a routerLink="/planEstudioDetalles" class="btn btn-secondary" i18n="@@planEstudioDetalle.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idPlanEstudioDetalle" rowType="number" i18n-label="@@planEstudioDetalle.idPlanEstudioDetalle.label" label="Id Plan Estudio Detalle" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@planEstudioDetalle.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@planEstudioDetalle.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="cargaHoraria" rowType="number" i18n-label="@@planEstudioDetalle.cargaHoraria.label" label="Carga Horaria" />
+    <app-input-row [group]="editForm" field="creditos" i18n-label="@@planEstudioDetalle.creditos.label" label="Creditos" />
+    <app-input-row [group]="editForm" field="orden" rowType="number" i18n-label="@@planEstudioDetalle.orden.label" label="Orden" />
+    <app-input-row [group]="editForm" field="sigla" i18n-label="@@planEstudioDetalle.sigla.label" label="Sigla" />
+    <app-input-row [group]="editForm" field="nivel" rowType="select" [options]="nivelValues" i18n-label="@@planEstudioDetalle.nivel.label" label="Nivel" />
+    <app-input-row [group]="editForm" field="modulo" rowType="select" [options]="moduloValues" i18n-label="@@planEstudioDetalle.modulo.label" label="Modulo" />
+    <app-input-row [group]="editForm" field="planEstudio" rowType="select" [options]="planEstudioValues" i18n-label="@@planEstudioDetalle.planEstudio.label" label="Plan Estudio" />
+    <input type="submit" i18n-value="@@planEstudioDetalle.edit.headline" value="Edit Plan Estudio Detalle" class="btn btn-primary mt-4" />
+</form>

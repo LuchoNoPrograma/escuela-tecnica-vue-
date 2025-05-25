@@ -1,0 +1,15 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@tarea.add.headline">Add Tarea</h1>
+    <div>
+        <a routerLink="/tareas" class="btn btn-secondary" i18n="@@tarea.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@tarea.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@tarea.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="nombreTarea" i18n-label="@@tarea.nombreTarea.label" label="Nombre Tarea" />
+    <app-input-row [group]="addForm" field="descripTarea" rowType="textarea" i18n-label="@@tarea.descripTarea.label" label="Descrip Tarea" />
+    <app-input-row [group]="addForm" field="estTarea" rowType="checkbox" i18n-label="@@tarea.estTarea.label" label="Est Tarea" />
+    <app-input-row [group]="addForm" field="agrupa" rowType="select" [options]="agrupaValues" i18n-label="@@tarea.agrupa.label" label="Agrupa" />
+    <input type="submit" i18n-value="@@tarea.add.headline" value="Add Tarea" class="btn btn-primary mt-4" />
+</form>

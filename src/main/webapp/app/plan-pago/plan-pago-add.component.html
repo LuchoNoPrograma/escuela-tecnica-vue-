@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@planPago.add.headline">Add Plan Pago</h1>
+    <div>
+        <a routerLink="/planPagos" class="btn btn-secondary" i18n="@@planPago.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@planPago.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@planPago.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="deudaTotal" i18n-label="@@planPago.deudaTotal.label" label="Deuda Total" />
+    <app-input-row [group]="addForm" field="pagadoTotal" i18n-label="@@planPago.pagadoTotal.label" label="Pagado Total" />
+    <app-input-row [group]="addForm" field="estPlanPago" i18n-label="@@planPago.estPlanPago.label" label="Est Plan Pago" />
+    <app-input-row [group]="addForm" field="concepto" i18n-label="@@planPago.concepto.label" label="Concepto" />
+    <app-input-row [group]="addForm" field="matricula" rowType="select" [options]="matriculaValues" i18n-label="@@planPago.matricula.label" label="Matricula" />
+    <input type="submit" i18n-value="@@planPago.add.headline" value="Add Plan Pago" class="btn btn-primary mt-4" />
+</form>

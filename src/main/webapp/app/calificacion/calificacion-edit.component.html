@@ -1,0 +1,15 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@calificacion.edit.headline">Edit Calificacion</h1>
+    <div>
+        <a routerLink="/calificacions" class="btn btn-secondary" i18n="@@calificacion.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idCalificacion" rowType="number" i18n-label="@@calificacion.idCalificacion.label" label="Id Calificacion" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@calificacion.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@calificacion.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="nota" i18n-label="@@calificacion.nota.label" label="Nota" />
+    <app-input-row [group]="editForm" field="criterioEval" rowType="select" [options]="criterioEvalValues" i18n-label="@@calificacion.criterioEval.label" label="Criterio Eval" />
+    <app-input-row [group]="editForm" field="programacion" rowType="select" [options]="programacionValues" i18n-label="@@calificacion.programacion.label" label="Programacion" />
+    <input type="submit" i18n-value="@@calificacion.edit.headline" value="Edit Calificacion" class="btn btn-primary mt-4" />
+</form>

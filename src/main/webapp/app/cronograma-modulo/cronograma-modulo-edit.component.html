@@ -1,0 +1,18 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@cronogramaModulo.edit.headline">Edit Cronograma Modulo</h1>
+    <div>
+        <a routerLink="/cronogramaModulos" class="btn btn-secondary" i18n="@@cronogramaModulo.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idCronogramaMod" rowType="number" i18n-label="@@cronogramaModulo.idCronogramaMod.label" label="Id Cronograma Mod" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@cronogramaModulo.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@cronogramaModulo.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="fecInicio" rowType="datepicker" i18n-label="@@cronogramaModulo.fecInicio.label" label="Fec Inicio" />
+    <app-input-row [group]="editForm" field="fecFin" rowType="datepicker" i18n-label="@@cronogramaModulo.fecFin.label" label="Fec Fin" />
+    <app-input-row [group]="editForm" field="estado" i18n-label="@@cronogramaModulo.estado.label" label="Estado" />
+    <app-input-row [group]="editForm" field="planEstudioDetalle" rowType="select" [options]="planEstudioDetalleValues" i18n-label="@@cronogramaModulo.planEstudioDetalle.label" label="Plan Estudio Detalle" />
+    <app-input-row [group]="editForm" field="grupo" rowType="select" [options]="grupoValues" i18n-label="@@cronogramaModulo.grupo.label" label="Grupo" />
+    <app-input-row [group]="editForm" field="docente" rowType="select" [options]="docenteValues" i18n-label="@@cronogramaModulo.docente.label" label="Docente" />
+    <input type="submit" i18n-value="@@cronogramaModulo.edit.headline" value="Edit Cronograma Modulo" class="btn btn-primary mt-4" />
+</form>

@@ -1,0 +1,47 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@revisionMonografia.list.headline">Revision Monografias</h1>
+    <div>
+        <a routerLink="/revisionMonografias/add" class="btn btn-primary ms-2" i18n="@@revisionMonografia.list.createNew">Create new Revision Monografia</a>
+    </div>
+</div>
+@if (!revisionMonografias || revisionMonografias.length === 0) {
+<div i18n="@@revisionMonografia.list.empty">No Revision Monografias could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@revisionMonografia.idRevisionMonografia.label">Id Revision Monografia</th>
+                <th scope="col" i18n="@@revisionMonografia.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@revisionMonografia.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@revisionMonografia.fecHoraDesignacion.label">Fec Hora Designacion</th>
+                <th scope="col" i18n="@@revisionMonografia.esAprobadorFinal.label">Es Aprobador Final</th>
+                <th scope="col" i18n="@@revisionMonografia.fecHoraRevision.label">Fec Hora Revision</th>
+                <th scope="col" i18n="@@revisionMonografia.estRevisionMoografia.label">Est Revision Moografia</th>
+                <th scope="col" i18n="@@revisionMonografia.monografia.label">Monografia</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (revisionMonografia of revisionMonografias; track revisionMonografia.idRevisionMonografia) {
+            <tr>
+                <td>{{ revisionMonografia.idRevisionMonografia }}</td>
+                <td>{{ revisionMonografia.idUsuReg }}</td>
+                <td>{{ revisionMonografia.idUsuMod }}</td>
+                <td>{{ revisionMonografia.fecHoraDesignacion }}</td>
+                <td>{{ revisionMonografia.esAprobadorFinal }}</td>
+                <td>{{ revisionMonografia.fecHoraRevision }}</td>
+                <td>{{ revisionMonografia.estRevisionMoografia }}</td>
+                <td>{{ revisionMonografia.monografia }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/revisionMonografias/edit', revisionMonografia.idRevisionMonografia]" class="btn btn-sm btn-secondary" i18n="@@revisionMonografia.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(revisionMonografia.idRevisionMonografia!)" class="btn btn-sm btn-secondary" i18n="@@revisionMonografia.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

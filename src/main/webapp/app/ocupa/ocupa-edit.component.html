@@ -1,0 +1,14 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@ocupa.edit.headline">Edit Ocupa</h1>
+    <div>
+        <a routerLink="/ocupas" class="btn btn-secondary" i18n="@@ocupa.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="estOcupa" i18n-label="@@ocupa.estOcupa.label" label="Est Ocupa" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@ocupa.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@ocupa.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="rol" rowType="select" [options]="rolValues" i18n-label="@@ocupa.rol.label" label="Rol" />
+    <app-input-row [group]="editForm" field="usuario" rowType="select" [options]="usuarioValues" i18n-label="@@ocupa.usuario.label" label="Usuario" />
+    <input type="submit" i18n-value="@@ocupa.edit.headline" value="Edit Ocupa" class="btn btn-primary mt-4" />
+</form>

@@ -1,0 +1,47 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@criterioEval.list.headline">Criterio Evals</h1>
+    <div>
+        <a routerLink="/criterioEvals/add" class="btn btn-primary ms-2" i18n="@@criterioEval.list.createNew">Create new Criterio Eval</a>
+    </div>
+</div>
+@if (!criterioEvals || criterioEvals.length === 0) {
+<div i18n="@@criterioEval.list.empty">No Criterio Evals could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@criterioEval.idCriterioEval.label">Id Criterio Eval</th>
+                <th scope="col" i18n="@@criterioEval.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@criterioEval.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@criterioEval.nombreCrit.label">Nombre Crit</th>
+                <th scope="col" i18n="@@criterioEval.descripcion.label">Descripcion</th>
+                <th scope="col" i18n="@@criterioEval.ponderacion.label">Ponderacion</th>
+                <th scope="col" i18n="@@criterioEval.orden.label">Orden</th>
+                <th scope="col" i18n="@@criterioEval.cronogramaMod.label">Cronograma Mod</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (criterioEval of criterioEvals; track criterioEval.idCriterioEval) {
+            <tr>
+                <td>{{ criterioEval.idCriterioEval }}</td>
+                <td>{{ criterioEval.idUsuReg }}</td>
+                <td>{{ criterioEval.idUsuMod }}</td>
+                <td>{{ criterioEval.nombreCrit }}</td>
+                <td>{{ criterioEval.descripcion }}</td>
+                <td>{{ criterioEval.ponderacion }}</td>
+                <td>{{ criterioEval.orden }}</td>
+                <td>{{ criterioEval.cronogramaMod }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/criterioEvals/edit', criterioEval.idCriterioEval]" class="btn btn-sm btn-secondary" i18n="@@criterioEval.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(criterioEval.idCriterioEval!)" class="btn btn-sm btn-secondary" i18n="@@criterioEval.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

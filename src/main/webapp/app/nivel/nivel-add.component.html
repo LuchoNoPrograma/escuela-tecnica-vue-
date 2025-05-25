@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@nivel.add.headline">Add Nivel</h1>
+    <div>
+        <a routerLink="/nivels" class="btn btn-secondary" i18n="@@nivel.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="idUsuReg" rowType="number" i18n-label="@@nivel.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="addForm" field="idUsuMod" rowType="number" i18n-label="@@nivel.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="addForm" field="nombreNivel" i18n-label="@@nivel.nombreNivel.label" label="Nombre Nivel" />
+    <input type="submit" i18n-value="@@nivel.add.headline" value="Add Nivel" class="btn btn-primary mt-4" />
+</form>

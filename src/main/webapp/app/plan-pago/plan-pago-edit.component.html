@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@planPago.edit.headline">Edit Plan Pago</h1>
+    <div>
+        <a routerLink="/planPagos" class="btn btn-secondary" i18n="@@planPago.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idPlanPago" rowType="number" i18n-label="@@planPago.idPlanPago.label" label="Id Plan Pago" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@planPago.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@planPago.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="deudaTotal" i18n-label="@@planPago.deudaTotal.label" label="Deuda Total" />
+    <app-input-row [group]="editForm" field="pagadoTotal" i18n-label="@@planPago.pagadoTotal.label" label="Pagado Total" />
+    <app-input-row [group]="editForm" field="estPlanPago" i18n-label="@@planPago.estPlanPago.label" label="Est Plan Pago" />
+    <app-input-row [group]="editForm" field="concepto" i18n-label="@@planPago.concepto.label" label="Concepto" />
+    <app-input-row [group]="editForm" field="matricula" rowType="select" [options]="matriculaValues" i18n-label="@@planPago.matricula.label" label="Matricula" />
+    <input type="submit" i18n-value="@@planPago.edit.headline" value="Edit Plan Pago" class="btn btn-primary mt-4" />
+</form>

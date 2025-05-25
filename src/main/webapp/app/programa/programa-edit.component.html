@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@programa.edit.headline">Edit Programa</h1>
+    <div>
+        <a routerLink="/programas" class="btn btn-secondary" i18n="@@programa.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="idPrograma" rowType="number" i18n-label="@@programa.idPrograma.label" label="Id Programa" />
+    <app-input-row [group]="editForm" field="idUsuReg" rowType="number" i18n-label="@@programa.idUsuReg.label" label="Id Usu Reg" />
+    <app-input-row [group]="editForm" field="idUsuMod" rowType="number" i18n-label="@@programa.idUsuMod.label" label="Id Usu Mod" />
+    <app-input-row [group]="editForm" field="nombrePrograma" i18n-label="@@programa.nombrePrograma.label" label="Nombre Programa" />
+    <app-input-row [group]="editForm" field="estPrograma" i18n-label="@@programa.estPrograma.label" label="Est Programa" />
+    <app-input-row [group]="editForm" field="modalidad" rowType="select" [options]="modalidadValues" i18n-label="@@programa.modalidad.label" label="Modalidad" />
+    <app-input-row [group]="editForm" field="categoria" rowType="select" [options]="categoriaValues" i18n-label="@@programa.categoria.label" label="Categoria" />
+    <input type="submit" i18n-value="@@programa.edit.headline" value="Edit Programa" class="btn btn-primary mt-4" />
+</form>

@@ -1,0 +1,47 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@planEstudioDetalle.list.headline">Plan Estudio Detalles</h1>
+    <div>
+        <a routerLink="/planEstudioDetalles/add" class="btn btn-primary ms-2" i18n="@@planEstudioDetalle.list.createNew">Create new Plan Estudio Detalle</a>
+    </div>
+</div>
+@if (!planEstudioDetalles || planEstudioDetalles.length === 0) {
+<div i18n="@@planEstudioDetalle.list.empty">No Plan Estudio Detalles could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@planEstudioDetalle.idPlanEstudioDetalle.label">Id Plan Estudio Detalle</th>
+                <th scope="col" i18n="@@planEstudioDetalle.idUsuReg.label">Id Usu Reg</th>
+                <th scope="col" i18n="@@planEstudioDetalle.idUsuMod.label">Id Usu Mod</th>
+                <th scope="col" i18n="@@planEstudioDetalle.cargaHoraria.label">Carga Horaria</th>
+                <th scope="col" i18n="@@planEstudioDetalle.creditos.label">Creditos</th>
+                <th scope="col" i18n="@@planEstudioDetalle.orden.label">Orden</th>
+                <th scope="col" i18n="@@planEstudioDetalle.sigla.label">Sigla</th>
+                <th scope="col" i18n="@@planEstudioDetalle.nivel.label">Nivel</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (planEstudioDetalle of planEstudioDetalles; track planEstudioDetalle.idPlanEstudioDetalle) {
+            <tr>
+                <td>{{ planEstudioDetalle.idPlanEstudioDetalle }}</td>
+                <td>{{ planEstudioDetalle.idUsuReg }}</td>
+                <td>{{ planEstudioDetalle.idUsuMod }}</td>
+                <td>{{ planEstudioDetalle.cargaHoraria }}</td>
+                <td>{{ planEstudioDetalle.creditos }}</td>
+                <td>{{ planEstudioDetalle.orden }}</td>
+                <td>{{ planEstudioDetalle.sigla }}</td>
+                <td>{{ planEstudioDetalle.nivel }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/planEstudioDetalles/edit', planEstudioDetalle.idPlanEstudioDetalle]" class="btn btn-sm btn-secondary" i18n="@@planEstudioDetalle.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(planEstudioDetalle.idPlanEstudioDetalle!)" class="btn btn-sm btn-secondary" i18n="@@planEstudioDetalle.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
