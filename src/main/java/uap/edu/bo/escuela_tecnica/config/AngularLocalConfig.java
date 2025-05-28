@@ -17,7 +17,7 @@ public class AngularLocalConfig {
 
             @Override
             public void addCorsMappings(final CorsRegistry registry) {
-                registry.addMapping("/**").allowedMethods("*").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/**").allowedMethods("*").allowedOrigins("http://localhost:9000");
             }
 
         };

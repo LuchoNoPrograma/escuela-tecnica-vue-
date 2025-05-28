@@ -1,0 +1,12 @@
+.q-table__bottom {
+    display: none !important;
+}
+
+.q-table tbody tr:nth-child(odd) {
+    background-color: #f5f5f7 !important; /* Un gris más oscuro */
+}
+
+/* Opcional: color para las filas al hacer hover */
+.q-table tbody tr:hover {
+    background-color: #eaeaee !important;
+}

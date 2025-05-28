@@ -42,7 +42,7 @@ public class RoleLoader implements ApplicationRunner {
         adminPersona.setApMaterno("ROOT");
         adminPersona.setCi("12345678");
         adminPersona.setNroCelular("123123123");
-        adminPersona.setIdUsuReg(0L); // <= Seteado aquí y bien
+        adminPersona.setIdUsuReg(10001L); // <= Seteado aquí y bien
         personaRepository.save(adminPersona);
 
         // 2. Creamos el Usuario administrador

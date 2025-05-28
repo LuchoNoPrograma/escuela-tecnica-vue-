@@ -24,10 +24,10 @@ public class JwtSecurityConfigUserDetailsService implements UserDetailsService {
     public JwtSecurityConfigUserDetails loadUserByUsername(final String username) {
         final Usuario usuario = usuarioRepository.findByNombreUsuarioIgnoreCase(username);
         if (usuario == null) {
-            log.warn("user not found: {}", username);
+            log.warn("Usuario no encontrado: {}", username);
             throw new UsernameNotFoundException("User " + username + " not found");
         }
-        final List<SimpleGrantedAuthority> authorities = usuario.getListaTareasAsignadas() == null ? List.of() : 
+        final List<SimpleGrantedAuthority> authorities = usuario.getListaTareasAsignadas() == null ? List.of() :
                 usuario.getListaTareasAsignadas()
                 .stream()
                 .map(tareaRef -> new SimpleGrantedAuthority(tareaRef.getNombreTarea()))

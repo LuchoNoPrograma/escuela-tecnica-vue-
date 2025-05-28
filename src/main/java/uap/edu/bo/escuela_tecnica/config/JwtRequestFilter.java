@@ -6,6 +6,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,6 +24,7 @@ import uap.edu.bo.escuela_tecnica.security.JwtSecurityConfigTokenService;
  * a valid JWT has been found, load the user details from the database and set the
  * authenticated principal for the duration of this request.
  */
+@Log4j2
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
@@ -47,7 +50,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         final String token = header.substring(7);
         final DecodedJWT jwt = jwtSecurityConfigTokenService.validateToken(token);
         if (jwt == null || jwt.getSubject() == null) {
-            // validation failed or token expired
+            log.warn("Autenticación fallida: JWT inválido o expirado para request [{} {}] desde IP {}",
+                request.getMethod(), request.getRequestURI(), request.getRemoteAddr());
             chain.doFilter(request, response);
             return;
         }
@@ -56,7 +60,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         try {
             userDetails = userDetailsService.loadUserByUsername(jwt.getSubject());
         } catch (final UsernameNotFoundException userNotFoundEx) {
-            // user not found
+            log.warn("Autenticación fallida: Usuario [{}] no encontrado para JWT válido en [{} {}] desde IP {}",
+                jwt.getSubject(), request.getMethod(), request.getRequestURI(), request.getRemoteAddr());
             chain.doFilter(request, response);
             return;
         }
@@ -66,6 +71,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         // set user details on spring security context
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        log.info("Autenticación exitosa: Usuario [{}] autenticado para [{} {}] desde IP {}",
+            userDetails.getUsername(), request.getMethod(), request.getRequestURI(), request.getRemoteAddr());
 
         // continue with authenticated user
         chain.doFilter(request, response);

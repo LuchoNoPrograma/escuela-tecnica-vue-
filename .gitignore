@@ -1,39 +1,85 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-application-local.properties
-*.log
+# General OS crap
 .DS_Store
-node/
-node_modules/
-.angular/cache
+Thumbs.db
 
-## IntelliJ IDEA
-.idea
+# Maven / Java
+target/
+*.log
+*.class
+
+# Maven Wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+# Application-specific
+application-local.properties
+
+# IntelliJ IDEA
+.idea/
 *.iws
 *.iml
 *.ipr
 
-## VS Code
+# VS Code
 .vscode/
 
-## STS
-.apt_generated
+# STS (Spring Tools Suite)
+.apt_generated/
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 
-## NetBeans
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+
+# Angular stuff (si quedó algo de la vieja app angular en webapp)
+src/main/webapp/node/
+src/main/webapp/.angular/
+src/main/webapp/angular.json
+src/main/webapp/karma.conf.js
+src/main/webapp/tsconfig.*
+src/main/webapp/browserslist
+src/main/webapp/.editorconfig
+src/main/webapp/.browserslistrc
+src/main/webapp/.eslintrc.json
+
+# Quasar / Vue (dentro de webapp)
+src/main/webapp/node_modules/
+src/main/webapp/.quasar/
+src/main/webapp/dist/
+src/main/webapp/quasar.config.*.temporary.compiled*
+src/main/webapp/npm-debug.log*
+src/main/webapp/yarn-debug.log*
+src/main/webapp/yarn-error.log*
+src/main/webapp/.env.local*
+
+# Cordova/Capacitor (si usas mobile desde Quasar)
+src/main/webapp/src-cordova/node_modules/
+src/main/webapp/src-cordova/platforms/
+src/main/webapp/src-cordova/plugins/
+src/main/webapp/src-cordova/www/
+src/main/webapp/src-capacitor/www/
+src/main/webapp/src-capacitor/node_modules/
+
+# Editor settings (redundante, pero seguro)
+src/main/webapp/.idea/
+src/main/webapp/.vscode/
+
+# Help files
+HELP.md
+
+# Otros archivos de caché o temporales
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Local env
+*.env
