@@ -1,0 +1,6 @@
+// app global css in SCSS form
+@import 'components/QTable';
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+body, html {
+    font-family: 'DM Sans', sans-serif;
+}

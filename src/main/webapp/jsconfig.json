@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "src/*": ["./src/*"],
+      "pages/*": ["./src/pages/*"],
+      "components/*": ["./src/components/*"],
+      "layouts/*": ["./src/layouts/*"],
+      "boot/*": ["./src/boot/*"],
+      "stores/*": ["./src/stores/*"]
+    }
+  },
+  "include": ["./src/**/*.js", "./src/**/*.vue"],
+  "exclude": ["node_modules", "dist", ".quasar"]
+}

@@ -1,6 +1,6 @@
 <script setup>
 import {ref, watch, onMounted} from 'vue'
-import { api } from 'boot/axios'
+import { api } from 'boot/axios.js'
 
 const tablas = [
   { label: 'Roles', value: 'rol' },
